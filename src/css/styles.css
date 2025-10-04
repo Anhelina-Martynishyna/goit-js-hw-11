@@ -77,21 +77,42 @@
 }
 
 .loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
   display: flex;
-  justify-content: center;
-  margin-bottom: 16px;
-  height: 48px;
   align-items: center;
-  visibility: hidden;
+  justify-content: center;
   opacity: 0;
-  transition: opacity 0.2s ease, visibility 0.2s ease;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 1000;
 }
 
 .loader-wrapper.visible {
-  visibility: visible;
   opacity: 1;
+  visibility: visible;
 }
 
-.loader.inner {
+.loader {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #007bff;
+  border-bottom-color: transparent;
+  border-radius: 50%;
   display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
